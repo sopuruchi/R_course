@@ -247,18 +247,124 @@ if(length(perf) == 0){
 
 
 # EXERCISE 4.5.8
-x <- 5
-y <- 9
-z <- 10
-x <- x + y
-y <- x - y
-x <- x - y
+x <- as.numeric(readline(prompt = "Enter value: "))
+y <- as.numeric(readline(prompt = "Enter value: "))
+z <- as.numeric(readline(prompt = "Enter value: "))
+
+placeholder <- x
+
+x <- y
+y <- z
+z <- placeholder
+
 print(x)
-y <- y + z
-z <- y - z
-y <- y - z
 print(y)
-z <- z + x
-x <- z - x
-z <- z - x
 print(z)
+# x <- x + y
+# y <- x - y
+# x <- x - y
+# 
+# y <- y + z
+# z <- y - z
+# y <- y - z
+# 
+# z <- z + x
+# x <- z - x
+# z <- z - x
+
+
+
+# EXERCISE 4.5.9
+perfect_squares <- 0
+perfect_cubes <- 0
+perfect_fifth <- 0
+
+for (i in 1:1000){
+  square_root <- floor(i ** (1/2))
+  cube_root <- ceiling(i ** (1/3))
+  fifth_root <- floor(i ** (1/5))
+  
+  if (square_root ** 2 != i){
+    perfect_squares <- perfect_squares + 1
+  }
+  
+  if (cube_root ** 3 != i){
+    perfect_cubes <- perfect_cubes + 1
+  }
+  
+  if (fifth_root ** 5 != i){
+    perfect_fifth <- perfect_fifth + 1
+  }
+}
+print(paste("Not perfect squares are: ", perfect_squares, 
+            ", Not perfect cubes are: ", perfect_cubes, 
+            ", Not perfect fifth are: ", perfect_fifth, 
+            sep = ""))
+
+
+
+# EXERCISE 4.5.10
+scores_vector <- c()
+for (i in 1:10){
+  user_response <- as.numeric(readline(prompt = "Enter values: "))
+  scores_vector <- c(scores_vector, user_response)
+}
+
+####------4.5.10A------####
+min_val <- scores_vector[1]
+for (i in scores_vector){
+  if (i < min_val){
+    min_val <- i
+  }
+}
+max_val <- scores_vector[1]
+for (i in scores_vector){
+  if (i > max_val){
+    max_val <- i
+  }
+}
+max_min_score <- c(min_val, max_val)
+print(max_min_score)
+
+
+####------4.5.10B------####
+sum_scores <- 0
+for(i in scores_vector){
+  sum_scores <- sum_scores + i
+}
+length_scores <- length(scores_vector)
+average_score <- sum_scores / length_scores
+print(average_score)
+
+
+####------4.5.10C------####
+sort_scores <- sort(scores_vector)
+second_highest <- sort_scores[which.max(sort_scores) - 1]
+print(second_highest)
+
+
+####------4.5.10D------####
+for (score in scores_vector) {
+  if(score > 100){
+    print("There is a value greater than 100")
+  }
+}
+
+
+####------4.5.10E------####
+new_scores <- c()
+for (i in sort_scores){
+  if (i != sort_scores[which.min(sort_scores)] & i != sort_scores[which.min(sort_scores) + 1]){
+    new_scores <- c(new_scores, i)
+  }
+}
+
+sum_new_scores <- 0
+for(i in new_scores){
+  sum_new_scores <- sum_new_scores + i
+}
+length_new_scores <- length(new_scores)
+average_new_scores <- sum_new_scores / length_new_scores
+print(average_new_scores)
+
+
