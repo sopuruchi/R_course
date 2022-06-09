@@ -21,7 +21,7 @@ print(t_d)
 
 d <- c('jamie', 'kate', 'pogba')
 for (i in length(d)){
-  for (j in d[i]){
+  for (j in d[i:length(j)]){
     print(j)
   }
 }

@@ -56,7 +56,6 @@ bmi_data <- data.frame(
   weight = c(81, 96, 77),
   age = c(42, 35, 22)
 )
-print(bmi_data)
 
 ####conditonals
 temp <- 50
